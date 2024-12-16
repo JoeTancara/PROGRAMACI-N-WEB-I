@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Validado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Formulario</h1>
+    <form id="form" novalidate>
+      <!-- Nombre -->
+      <label for="name">Nombre</label>
+      <input 
+        type="text" 
+        id="name" 
+        placeholder="Ej: Juan Pérez" 
+        pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" 
+        title="El nombre debe contener solo letras y espacios." 
+        required>
+      <span class="error" id="nameError">El nombre solo debe contener letras y espacios.</span>
+
+      <!-- Correo Electrónico -->
+      <label for="email">Correo Electrónico</label>
+      <input 
+        type="email" 
+        id="email" 
+        placeholder="Ej: ejemplo@correo.com" 
+        title="Introduce un correo electrónico válido." 
+        required>
+      <span class="error" id="emailError">Ingresa un correo válido.</span>
+
+      <!-- Teléfono -->
+      <label for="phone">Teléfono</label>
+      <input 
+        type="number" 
+        id="phone" 
+        placeholder="Ej: 789123456" 
+        pattern="^[0-9]{8,15}$" 
+        title="El teléfono debe contener entre 8 y 15 dígitos." 
+        required>
+      <span class="error" id="phoneError">Ingresa un teléfono válido (solo números).</span>
+
+      <!-- Contraseña -->
+      <label for="password">Contraseña</label>
+      <input 
+        type="password" 
+        id="password" 
+        placeholder="Mínimo 8 caracteres" 
+        minlength="8" 
+        title="La contraseña debe tener al menos 8 caracteres." 
+        required>
+      <span class="error" id="passwordError">La contraseña debe tener al menos 8 caracteres.</span>
+
+      <button type="button" id="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>Datos Ingresados</h2>
+      <ul id="modalData"></ul>
+      <button class="close-modal" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

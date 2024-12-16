@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Contraseñas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Generador de Contraseñas</h1>
+    <form id="passwordForm" novalidate>
+      <!-- CI -->
+      <label for="ci">CI</label>
+      <input 
+        type="text" 
+        id="ci" 
+        placeholder="Ej: 12345678" 
+        pattern="^[0-9]{5,10}$" 
+        title="El CI debe contener entre 5 y 10 dígitos." 
+        required>
+      <span class="error" id="ciError">El CI debe contener entre 5 y 10 dígitos.</span>
+
+      <!-- Nombre -->
+      <label for="name">Nombre</label>
+      <input 
+        type="text" 
+        id="name" 
+        placeholder="Ej: Juan" 
+        pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$" 
+        title="El nombre solo debe contener letras." 
+        required>
+      <span class="error" id="nameError">El nombre solo debe contener letras.</span>
+
+      <!-- Apellido Paterno -->
+      <label for="apPaterno">Apellido Paterno</label>
+      <input 
+        type="text" 
+        id="apPaterno" 
+        placeholder="Ej: Pérez" 
+        pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$" 
+        title="El apellido solo debe contener letras." 
+        required>
+      <span class="error" id="apPaternoError">El apellido solo debe contener letras.</span>
+
+      <!-- Apellido Materno -->
+      <label for="apMaterno">Apellido Materno (Opcional)</label>
+      <input 
+        type="text" 
+        id="apMaterno" 
+        placeholder="Ej: López" 
+        pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ]*$" 
+        title="El apellido solo debe contener letras.">
+      <span class="error" id="apMaternoError">El apellido solo debe contener letras.</span>
+
+      <!-- Fecha de Nacimiento -->
+      <label for="birthdate">Fecha de Nacimiento</label>
+      <input 
+        type="date" 
+        id="birthdate" 
+        required>
+      <span class="error" id="birthdateError">Ingresa una fecha de nacimiento válida.</span>
+
+      <button type="button" id="generatePassword">Generar Contraseña</button>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>Contraseña Generada</h2>
+      <p id="passwordResult"></p>
+      <button class="close-modal" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
